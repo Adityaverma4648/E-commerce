@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: 'Poppins', sans-serif;
+        font-family: 'Raleway', sans-serif; */
+    font-family: 'Roboto', sans-serif;
+}
+// myColors
+
+/* Color Theme Swatches in Hex */
+/* Color Theme Swatches in Hex */
+$Northern-Lights-Beach-1-hex: #012340;
+$Northern-Lights-Beach-2-hex: #025939;
+$Northern-Lights-Beach-3-hex: #027333;
+$Northern-Lights-Beach-4-hex: #03A63C;
+$Northern-Lights-Beach-5-hex: #04D939;
+/* Color Theme Swatches in Hex */
+$Texture-of-red-wall-1-hex: #F25C69;
+$Texture-of-red-wall-2-hex: #590202;
+$Texture-of-red-wall-3-hex: #8C0808;
+$Texture-of-red-wall-4-hex: #BF0F0F;
+$Texture-of-red-wall-5-hex: #F23D3D;
+
+/* Color Theme Swatches in Hex */
+$The-Black-and-Red-1-hex: #2A8C82;
+$The-Black-and-Red-2-hex: #41BFB3;
+$The-Black-and-Red-3-hex: #9BF2EA;
+$The-Black-and-Red-4-hex: #275950;
+$The-Black-and-Red-5-hex: #260101;
+
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background-color: $Northern-Lights-Beach-1-hex;
+}
+.categoriesCont{
+    height: 5vh;
+    background-color: $Texture-of-red-wall-4-hex;
+    li{
+        list-style: none;
+        margin: 0px 10px;
+        button{
+            background: none;
+            text-decoration: none;
+            cursor : pointer;
+            border: none;
+            color: #fff;
+        }
+    }
+}
+
+.choosenCatProductsCont{
+    height: 40vh;
+    width: 25vw;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 3px;
+    .path{
+        width: 100%;
+        padding: 0px 10px;
+        font-weight: 700;
+        background-color: yellow;
+    }
+    .body{
+        .imgCont{
+            width: 100%;
+            display : flex;
+            justify-content: space-between;
+            align-items: center;
+             .smallShow{
+                width: 20%;
+                display: flex;
+                flex-direction: column ;
+                background-color: #04D939;
+                img{
+                    height: 5vh;
+                    width: 5vh;
+                    margin: 3px 0px;
+                    background-color: #012340;
+                    cursor: pointer;
+                }
+             }
+             .largeShow{
+                width: 80%;
+                background-color:#F25C69;
+                img{
+                    height: 200px;
+                    width: 200px;
+                }
+             }
+        }
+    }
+}
