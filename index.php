@@ -10,6 +10,7 @@ include './configDB/conn.php'
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--  the title -->
     <title>E-commerce</title>
+
     <!--  google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,11 +24,11 @@ include './configDB/conn.php'
     <!-- myIcons -->
     <script src="https://kit.fontawesome.com/8dc03a4776.js" crossorigin="anonymous"></script>
     <!-- mystyles -->
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./index.css">
 
 </head>
 
-<body>
+<body class="Deep-Teal-Sea-1-hex bg-black">
     <!--  NAVBAR -->
     <?php include 'navbar.php' ?>
     <!-- ----- -->
@@ -43,32 +44,7 @@ include './configDB/conn.php'
         <div class="choosenCategoryCont d-flex py-2" id="choosenCategoryCont">
         </div>
     </section>
-
-
-    <!-- --------- -->
-    <section class="warning" id="warning">
-        <!-- <div id="accountListWarning" class="text-white">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </div>
-        <div id="demo" class="collapse">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </div>
-        <div id="demo" class="collapse">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </div>
-        <div id="demo" class="collapse">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-        </div> -->
-    </section>
-    <script src="./javaScript/index.js"></script>
+    <script src="./index.js"></script>
 </body>
 
 </html>

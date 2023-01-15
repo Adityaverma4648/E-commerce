@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
-    <a class="navbar-brand px-2 col-sm-1 text-center" href="#">LOGO</a>
+    <a href="../E-commerce/index.php" class="navbar-brand px-2 col-sm-1 text-center">LOGO</a>
     <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"></button>
     <div class="collapse navbar-collapse" id="collapsibleNavId">
         <div class="col-sm-6 navbar-search-inp">
@@ -14,13 +14,16 @@
                 Address/PinCode
                 <i class="fa fa-caret-down px-1"></i>
             </div>
-            <div class="accountAndLists mx-1 py-2 container-fluid d-flex justify-content-center align-items-center">
+            <a class="accountAndLists text-white text-decoration-none mx-1 py-2 container-fluid d-flex justify-content-center align-items-center" href="./Account_List.php">
                 Accounts/List
-                <i class="fa fa-caret-down px-1"></i>
-            </div>
+            </a>
             <div class="notification mx-1 py-2 container-fluid d-flex justify-content-center align-items-center">
+                <span class="messageCounter px-1 text-warning">
+                    <?php $message = 0;
+                    echo "$message"; ?>
+                </span>
                 <i class="fa fa-bell px-1"></i>
-                Notification
+                msg
                 <i class="fa fa-caret-down px-1"></i>
             </div>
             <div class="returnAndOrder mx-1 py-2 container-fluid d-flex justify-content-center align-items-center">
