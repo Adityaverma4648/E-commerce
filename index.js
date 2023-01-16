@@ -63,11 +63,11 @@ categoriesCont.addEventListener("click",(e)=>{
                  const replaceMentImg = "https://cdn.shopify.com/s/files/1/0008/9260/0356/files/nav-best_600x600_variety_600x.png?v=1619452753";
               const imageArray = [replaceMentImg,replaceMentImg,replaceMentImg, replaceMentImg]
          
-              var content = `<div class="choosenCatProductsCont"><div class="path"><small>${category} > ${brand}</small></div><div class="body"><div class="imgCont"><div class="smallShow mx-1"><img src="`+ imageArray[0] +` alt="prod-img"><img src="`+ imageArray[1] +` alt="prod-img"><img src="`+ imageArray[2] +` alt="prod-img"><img src="`+ imageArray[3] +` alt="prod-img"></div><div class="largeShow"><img src="`+ imageArray[0] +` alt="prod-img"></div></div>
+              var content = `<div class="choosenCatProductsCont"><div class="path bg-success"><small>${category} > ${brand}</small></div><div class="body"><div class="imgCont"><div class="smallShow mx-1"><img src="`+ imageArray[0] +` alt="prod-img"><img src="`+ imageArray[1] +` alt="prod-img"><img src="`+ imageArray[2] +` alt="prod-img"><img src="`+ imageArray[3] +` alt="prod-img"></div><div class="largeShow"><img src="`+ imageArray[0] +` alt="prod-img"></div></div>
               <div><h5 class="px-2"><strong>${brand}</strong></h5>
               <div class="bg-success text-center">Only at  <strong>${price}-Rs</strong>
               <span class="text-decoration-line-through">(${marketValue}-Rs)</span></div>
-              <span class="py-1 button-group text-white" id="button-group"><button type="button" class="col-sm-6 py-1">Cart</button><button type="button" class="col-sm-6 py-1">Favourites</button></span></div></div></div>`
+              <span class="py-1 button-group text-white" id="button-group"><button type="button" class="col-sm-6 py-1"><i class="fa fa-cart-plus"></i>Cart</button><button type="button" class="col-sm-6 py-1"><i class="fa fa-star"></i>Favourites</button></span></div></div></div>`
               return(
               choosenCategoryCont.innerHTML += content
               )
@@ -124,13 +124,20 @@ function loginFormFetcher(){
    submitInp.setAttribute("name","submit");
    submitInp.setAttribute("value","Login");
    submitInp.setAttribute("id","submit");
-   submitInp.classList.add('bg-primary','border-0','text-white')
+   submitInp.classList.add('bg-success','border-0','text-white')
+
+    var GuestLoginBtn = document.createElement('button');
+    GuestLoginBtn.setAttribute("type","button");
+    GuestLoginBtn.classList.add("btn-lg","btn-danger",'text-center','text-white','container-fluid');
 
    formElem.appendChild(usernameInp);
    formElem.appendChild(emailInp);
    formElem.appendChild(passwordInp);
-   formElem.appendChild(submitInp);
+// GuestLoginloginBTn
+   formElem.appendChild(GuestLoginBtn);
 
+   formElem.appendChild(submitInp);
+     
    formCont.append(formElem);
 }
 
@@ -144,7 +151,7 @@ function registrationFormFetcher(){
 
 //     name field
     var usernameInp = document.createElement("input");
-   usernameInp.setAttribute("type","email");
+   usernameInp.setAttribute("type","text");
    usernameInp.setAttribute("name","userNameReg");
    usernameInp.setAttribute("id","userNameReg");
    usernameInp.setAttribute("placeholder","Enter userName");
@@ -160,7 +167,7 @@ function registrationFormFetcher(){
 
 // email-field
    var emailInp = document.createElement("input");
-   emailInp.setAttribute("type","text");
+   emailInp.setAttribute("type","email");
    emailInp.setAttribute("name","emailReg");
    emailInp.setAttribute("id","emailReg");
    emailInp.setAttribute("placeholder","Enter your email");
@@ -180,7 +187,7 @@ function registrationFormFetcher(){
    submitInp.setAttribute("name","submitReg");
    submitInp.setAttribute("value","Register");
    submitInp.setAttribute("id","submitReg");
-   submitInp.classList.add('bg-primary','border-0','text-white')
+   submitInp.classList.add('bg-success','border-0','text-white')
 
    formElem.appendChild(usernameInp);
    formElem.appendChild(AgeInp);

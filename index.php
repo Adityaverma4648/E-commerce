@@ -44,6 +44,14 @@ include './configDB/conn.php'
         <div class="choosenCategoryCont d-flex py-2" id="choosenCategoryCont">
         </div>
     </section>
+    <!-- heroSection -->
+    <?php include "./hero.php" ?>
+    <!-- ends here -->
+
+
+    <!-- All products -->
+    <?php include "./products.php" ?>
+    <!--  ends here  -->
     <script src="./index.js"></script>
 </body>
 

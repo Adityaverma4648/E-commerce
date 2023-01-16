@@ -14,9 +14,10 @@
                 Address/PinCode
                 <i class="fa fa-caret-down px-1"></i>
             </div>
-            <a class="accountAndLists text-white text-decoration-none mx-1 py-2 container-fluid d-flex justify-content-center align-items-center" href="./Account_List.php">
+            <div class="text-white text-decoration-none mx-1 py-2 container-fluid d-flex justify-content-center align-items-center" data-bs-toggle="collapse" data-bs-target="#registerLogin">
                 Accounts/List
-            </a>
+                <i class="fa fa-caret-down px-1"></i>
+            </div>
             <div class="notification mx-1 py-2 container-fluid d-flex justify-content-center align-items-center">
                 <span class="messageCounter px-1 text-warning">
                     <?php $message = 0;
@@ -37,9 +38,18 @@
                     echo "$counter";
                     ?>
                 </span>
+                <i class="fa fa-cart-plus px-1">
+                </i>
                 Cart
                 <i class="fa fa-caret-down px-1"></i>
             </div>
         </div>
     </div>
+
+
 </nav>
+<!--  myCollapses -->
+<div class="container-fluid my-1 rounded-0 bg-light btn-group collapse" id="registerLogin" style="min-height:45vh;">
+    <a class="col-sm-6 text-decoration-none" href="login.php">Login</a>
+    <a class="col-sm-6 text-decoration-none" href="login.php">Registration</a>
+</div>

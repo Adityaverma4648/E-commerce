@@ -24,9 +24,11 @@
 
     </head>
 
-    <body class="bg-black">
+    <body>
         <!--  NAVBAR -->
         <?php include './navbar.php' ?>
+        <?php include './configDB/conn.php' ?>
+
         <!-- ----- -->
         <section id="AccountsList">
             <div class="py-3 px-2 bg-lessLight d-flex flex-column AccountListCont">
@@ -38,22 +40,39 @@
                     </center>
                     <center>
                         <span class="my-2">
-                            Please Login And Register for getting benefits of all services.
+                            Please Login And Register to get benefits of all services.
                         </span>
                     </center>
                 </div>
                 <!--   formContainer -->
-                <div class="d-flex col-sm-12 bg-primary">
+                <div class="d-flex row bg-primary">
                     <div class="col-sm-6 text-white text-center getterButtons" style="cursor: pointer border border-end" id="LoginFormGetter" onclick="loginFormFetcher()">
                         Login
                     </div>
+
                     <div class="col-sm-6 text-white text-center getterButtons" style="cursor: pointer" id="RegisterFormGetter" onclick="registrationFormFetcher()">
                         Register
                     </div>
                 </div>
-                <div class="formCont" id="formCont">
-                </div>
-                <!-- ------------------ -->
+                <?php
+                if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    // username
+                    $userNameReg = mysqli_real_escape_string($conn, $_POST["userNameReg"]);
+                    $ageReg = mysqli_real_escape_string($conn, $_POST["ageReg"]);
+
+                    $emailReg = mysqli_real_escape_string($conn, $_POST["emailReg"]);
+                    $passwordReg = mysqli_real_escape_string($conn, $_POST["passwordReg"]);
+                    $reg_date = date("Y-m-d H:i:s");
+
+                    $query = "INSERT into `userregisteration`(userNameReg , ageReg,emailReg,passwordReg, reg_date) VALUES('$userNameReg','$ageReg','$emailReg','" . md5($passwordReg) . "','$reg_date')";
+                    //   checking result
+                    $result = mysqli_query($conn, $query);
+                    if ($result) {
+                        echo "Please Login to end all misery";
+                    }
+                }
+                ?>
+                <div class="formCont" id="formCont"></div>
             </div>
 
         </section>

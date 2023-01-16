@@ -30,7 +30,7 @@
   .bg-lessLight{
      background-color: rgb(209, 209, 209);
   }
-  .bg-dimlight{
+  .bg-dimLight{
     background-color: rgb(158, 158, 158);
   }
 /* ------------------------- */
@@ -64,6 +64,7 @@ body::-webkit-scrollbar {
   display: flex;
   justify-content: center;
   align-items: center;
+  user-select: none;
 }
 .categoriesCont li button {
   background: none;
@@ -88,9 +89,12 @@ body::-webkit-scrollbar {
   margin: 0px 3px;
 }
 .choosenCatProductsCont .path {
-  height: 15%;
+  height: 10%;
   width: 100%;
-  padding: 0px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 2px;
   font-weight: 700;
 }
 .choosenCatProductsCont .body .imgCont {
@@ -150,6 +154,10 @@ body::-webkit-scrollbar {
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      background: linear-gradient(rgba(0, 0, 0,0.3),rgba(0, 0, 0,0.5)),url("./img/lowes-takes-photos-Ebro7KM8jxY-unsplash\ \(1\).jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
 }
 #LoginFormGetter{
   cursor: pointer;
