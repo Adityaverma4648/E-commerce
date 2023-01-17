@@ -51,5 +51,5 @@
 <!--  myCollapses -->
 <div class="container-fluid my-1 rounded-0 bg-light btn-group collapse" id="registerLogin" style="min-height:45vh;">
     <a class="col-sm-6 text-decoration-none" href="login.php">Login</a>
-    <a class="col-sm-6 text-decoration-none" href="login.php">Registration</a>
+    <a class="col-sm-6 text-decoration-none" href="register.php">Registration</a>
 </div>

@@ -147,7 +147,7 @@ body::-webkit-scrollbar {
 
 
 /*  AccountsList.php */
-#AccountsList{
+/* #AccountsList{
       height: 95vh;
       width: 100vw;
       display: flex;
@@ -158,14 +158,31 @@ body::-webkit-scrollbar {
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
+} */
+
+#formContLogin{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-#LoginFormGetter{
-  cursor: pointer;
+#formContLogin form{
+      padding: 10px 5px;
+      height: 60vh;
+      width: 35vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #012340;
 }
 
-.formCont input{
+#formContLogin input{
+  width: 98%;
   margin: 3px 0px;
-  padding: 5px 2px;
+  padding: 0.5rem 2px;
+  border-radius: 2px ;
 }
 .getterButtons{
   padding: 5px 0px;

@@ -5,10 +5,17 @@ const choosenCategoryCont = document.getElementById("choosenCategoryCont");
 const parentCloseBtn = document.querySelector(".closeBtn");
 const closeBtn = document.getElementById("closeBtn");
 const closeChoosenCategoryBtn = document.getElementById("closeChoosenCategoryBtn");
-//  warning section
-const warning = document.getElementById("warning");
-const accountsList = document.getElementById("accountsList")
-const formCont = document.getElementById("formCont");
+
+
+//  will be removing this sooon
+const accountsList = document.getElementById("accountsList");
+
+// Login DOm
+const formContLogin = document.getElementById("formContLogin");
+
+//  regsitrarion DOM
+const formContRegistration = document.getElementById("formContRegistration");
+
 
 
 //  categories fetcher
@@ -37,6 +44,7 @@ closeChoosenCategoryBtn.addEventListener("click",(e)=>{
 }
 
 //  setCategories add eventlstner
+if(categoriesCont){
 categoriesCont.addEventListener("click",(e)=>{
     var selectedCategory = "";
    if(e.target.tagName === "SMALL"){
@@ -80,11 +88,10 @@ categoriesCont.addEventListener("click",(e)=>{
     fetchChoosenCategories(e.target.className);
    }
 })
-
+}
 
 function loginFormFetcher(){
-   formCont.innerHTML= "";
-   console.log("heelo")
+   formContLogin.innerHTML= "";
    var formElem = document.createElement("form");
    formElem.setAttribute("method","POST");
    formElem.setAttribute("id","loginForm");
@@ -126,23 +133,24 @@ function loginFormFetcher(){
    submitInp.setAttribute("id","submit");
    submitInp.classList.add('bg-success','border-0','text-white')
 
-    var GuestLoginBtn = document.createElement('button');
-    GuestLoginBtn.setAttribute("type","button");
-    GuestLoginBtn.classList.add("btn-lg","btn-danger",'text-center','text-white','container-fluid');
+   //  var GuestLoginBtn = document.createElement('button');
+   //  GuestLoginBtn.setAttribute("type","button");
+   //  GuestLoginBtn.
+   //  GuestLoginBtn.classList.add("btn-lg","btn-danger",'text-center','text-white','container-fluid');
 
    formElem.appendChild(usernameInp);
    formElem.appendChild(emailInp);
    formElem.appendChild(passwordInp);
 // GuestLoginloginBTn
-   formElem.appendChild(GuestLoginBtn);
+   // formElem.appendChild(GuestLoginBtn);
 
    formElem.appendChild(submitInp);
      
-   formCont.append(formElem);
+   formContLogin.append(formElem);
 }
 
 function registrationFormFetcher(){
-   formCont.innerHTML= "";
+   formContRegistration.innerHTML= "";
    var formElem = document.createElement("form");
    formElem.setAttribute("method","POST");
    formElem.setAttribute("id","registraionForm");
@@ -195,11 +203,8 @@ function registrationFormFetcher(){
    formElem.appendChild(passwordInp);
    formElem.appendChild(submitInp);
 
-   formCont.append(formElem);
+   formContRegistration.append(formElem);
 }
 
-
-// const btn = document.getElementById("submitReg")
-// btn.addEventListener("click",(e)=>{
-//      alert("done");
-// })
+loginFormFetcher();
+registrationFormFetcher();

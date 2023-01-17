@@ -44,16 +44,7 @@
                         </span>
                     </center>
                 </div>
-                <!--   formContainer -->
-                <div class="d-flex row bg-primary">
-                    <div class="col-sm-6 text-white text-center getterButtons" style="cursor: pointer border border-end" id="LoginFormGetter" onclick="loginFormFetcher()">
-                        Login
-                    </div>
 
-                    <div class="col-sm-6 text-white text-center getterButtons" style="cursor: pointer" id="RegisterFormGetter" onclick="registrationFormFetcher()">
-                        Register
-                    </div>
-                </div>
                 <?php
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     // username
@@ -72,8 +63,8 @@
                     }
                 }
                 ?>
-                <div class="formCont" id="formCont"></div>
-            </div>
+                <!-- <div class="formCont" id="formCont"></div>
+            </div> -->
 
         </section>
         <script src="./index.js"></script>
