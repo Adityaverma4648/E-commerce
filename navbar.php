@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+<nav class="navbar navbar-expand-sm navbar-dark bg-primary position-sticky">
     <a href="../E-commerce/index.php" class="navbar-brand px-2 col-sm-1 text-center">LOGO</a>
     <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"></button>
     <div class="collapse navbar-collapse" id="collapsibleNavId">
@@ -18,8 +18,8 @@
                 Accounts/List
                 <i class="fa fa-caret-down px-1"></i>
             </div>
-            <div class="notification mx-1 py-2 container-fluid d-flex justify-content-center align-items-center">
-                <span class="messageCounter px-1 text-warning">
+            <div class="notification mx-1 py-2 container-fluid d-flex justify-content-center align-items-center" data-bs-toggle="collapse" data-bs-target="#messageListCont">
+                <span class=" messageCounter px-1 text-warning">
                     <?php $message = 0;
                     echo "$message"; ?>
                 </span>
@@ -45,11 +45,12 @@
             </div>
         </div>
     </div>
-
-
 </nav>
-<!--  myCollapses -->
-<div class="container-fluid my-1 rounded-0 bg-light btn-group collapse" id="registerLogin" style="min-height:45vh;">
-    <a class="col-sm-6 text-decoration-none" href="login.php">Login</a>
-    <a class="col-sm-6 text-decoration-none" href="register.php">Registration</a>
-</div>
+
+<?php
+
+// if()
+include '../E-commerce/DropDowns/accountDropDown.php';
+include '../E-commerce/DropDowns/messageDropDown.php';
+include '../E-commerce/DropDowns/returnOrderDropDown.php';
+?>

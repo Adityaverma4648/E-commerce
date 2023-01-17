@@ -28,7 +28,7 @@ include './configDB/conn.php'
 
 </head>
 
-<body class="Deep-Teal-Sea-1-hex bg-black">
+<body class="Deep-Teal-Sea-1-hex bg-black d-flex flex-column">
     <!--  NAVBAR -->
     <?php include 'navbar.php' ?>
     <!-- ----- -->
@@ -53,6 +53,7 @@ include './configDB/conn.php'
     <?php include "./products.php" ?>
     <!--  ends here  -->
     <script src="./index.js"></script>
+
 </body>
 
 </html>

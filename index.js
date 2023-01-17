@@ -1,5 +1,4 @@
-console.log("nirlajjaaa tu phir agya")
-
+window.onload = (event) =>{
 const categoriesCont = document.getElementById("categoriesCont");
 const choosenCategoryCont = document.getElementById("choosenCategoryCont");
 const parentCloseBtn = document.querySelector(".closeBtn");
@@ -16,8 +15,6 @@ const formContLogin = document.getElementById("formContLogin");
 //  regsitrarion DOM
 const formContRegistration = document.getElementById("formContRegistration");
 
-
-
 //  categories fetcher
 const fetchCategories = ()=>{
     fetch('https://dummyjson.com/products/categories')
@@ -33,17 +30,20 @@ const fetchCategories = ()=>{
         })
 });
 }
+//  rendering categories
 fetchCategories();
 
 
 //  closing the choosen category
 if(closeChoosenCategoryBtn){
 closeChoosenCategoryBtn.addEventListener("click",(e)=>{    
-     choosenCategoryCont.innerHTML = "";
+   if(choosenCategoryCont){  
+       choosenCategoryCont.innerHTML = "";
+   }
 })
 }
 
-//  setCategories add eventlstner
+//  setCategories add eventlistner
 if(categoriesCont){
 categoriesCont.addEventListener("click",(e)=>{
     var selectedCategory = "";
@@ -90,7 +90,10 @@ categoriesCont.addEventListener("click",(e)=>{
 })
 }
 
+
+//  login.php 
 function loginFormFetcher(){
+   if(formContLogin){
    formContLogin.innerHTML= "";
    var formElem = document.createElement("form");
    formElem.setAttribute("method","POST");
@@ -147,8 +150,9 @@ function loginFormFetcher(){
    formElem.appendChild(submitInp);
      
    formContLogin.append(formElem);
+   }
 }
-
+// register.php
 function registrationFormFetcher(){
    formContRegistration.innerHTML= "";
    var formElem = document.createElement("form");
@@ -206,5 +210,44 @@ function registrationFormFetcher(){
    formContRegistration.append(formElem);
 }
 
+//  rendering
 loginFormFetcher();
 registrationFormFetcher();
+
+
+
+//  productFetcher()-----------------------products.php
+const myProductCont = document.getElementById('myProductCont');
+function productFetcher(){
+   fetch('https://dummyjson.com/products')
+  .then(res => res.json())
+  .then((data)=>{
+      console.log(data);
+      myProductCont.innerHTML = "";
+      data.products?.slice(0,7).map((d)=>{
+         var content = `<a href="" class="text-decoration-none d-flex flex-column" id=${d.id}><div>
+           <span>
+              <small>
+                 ${d.category}
+              </small>
+           </span>
+           <div class="img-responsive">
+             <img src=${d.thumbnail} alt=${d.title}>
+           </div>
+           <div>
+             <strong>
+               <h5>
+                 ${d.title} 
+               </h5>
+             </strong>
+             <small>
+                ${d.brand} 
+             </small>
+           </div>
+         </div></a>`;
+         return (myProductCont.innerHTML += content);
+      });
+  });
+}
+productFetcher();
+};
