@@ -204,3 +204,30 @@ body::-webkit-scrollbar {
   align-items: center;
   border-right: 2px solid blue;
 }
+
+
+
+
+/*  myProducts styles */
+#myProductCont{
+  background-color: #41BFB3;
+}
+#myProductCont a div{
+   width: 14vw;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   overflow: hidden;
+}
+#myProductCont a div img{
+   width: 98%;
+}
+
+
+
+
+
+/*  products pagination */
+.val{
+  cursor: pointer;
+}

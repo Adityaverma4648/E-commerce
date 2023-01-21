@@ -1,26 +1,16 @@
-window.onload = (event) =>{
+
 const categoriesCont = document.getElementById("categoriesCont");
 const choosenCategoryCont = document.getElementById("choosenCategoryCont");
 const parentCloseBtn = document.querySelector(".closeBtn");
 const closeBtn = document.getElementById("closeBtn");
 const closeChoosenCategoryBtn = document.getElementById("closeChoosenCategoryBtn");
 
-
-//  will be removing this sooon
-const accountsList = document.getElementById("accountsList");
-
-// Login DOm
-const formContLogin = document.getElementById("formContLogin");
-
-//  regsitrarion DOM
-const formContRegistration = document.getElementById("formContRegistration");
-
 //  categories fetcher
 const fetchCategories = ()=>{
     fetch('https://dummyjson.com/products/categories')
 .then(res => res.json())
 .then((data)=>{
-         categoriesCont.innerHTML = ''; 
+         categoriesCont.innerHTML = 'h'; 
         data?.map((d)=>{
             const catText = d;
             var catElem = `<li><button type="button"><small class="`+catText+`">${catText}</small></button></li>`;
@@ -30,9 +20,6 @@ const fetchCategories = ()=>{
         })
 });
 }
-//  rendering categories
-fetchCategories();
-
 
 //  closing the choosen category
 if(closeChoosenCategoryBtn){
@@ -57,7 +44,7 @@ categoriesCont.addEventListener("click",(e)=>{
         .then(res => res.json())
         .then((data)=>{
             // console.log(data)
-             choosenCategoryCont.innerHTML = "";
+             choosenCategoryCont.innerHTML = "h";
 
              data.products.map((d)=>{
               const category = d.category;
@@ -89,143 +76,34 @@ categoriesCont.addEventListener("click",(e)=>{
    }
 })
 }
+//  form Password Displayer
 
-
-//  login.php 
-function loginFormFetcher(){
-   if(formContLogin){
-   formContLogin.innerHTML= "";
-   var formElem = document.createElement("form");
-   formElem.setAttribute("method","POST");
-   formElem.setAttribute("id","loginForm");
-   formElem.classList.add('d-flex','flex-column','py-2','my-1')
-
-
-//     name field
-    var usernameInp = document.createElement("input");
-   usernameInp.setAttribute("type","email");
-   usernameInp.setAttribute("name","userName");
-   usernameInp.setAttribute("id","userName");
-   usernameInp.setAttribute("placeholder","Enter userName");
-   usernameInp.setAttribute("required","");
-
-
-// email-field
-   var emailInp = document.createElement("input");
-   emailInp.setAttribute("type","text");
-   emailInp.setAttribute("name","email");
-   emailInp.setAttribute("id","email");
-   emailInp.setAttribute("placeholder","Enter your email");
-   emailInp.setAttribute("required","");
-
-
-   // password 
-      var passwordInp = document.createElement("input");
-   passwordInp.setAttribute("type","password");
-   passwordInp.setAttribute("name","password");
-   passwordInp.setAttribute("id","password");
-   passwordInp.setAttribute("placeholder","Enter password");
-   passwordInp.setAttribute("required","");
-
-
-   //  submit
-      var submitInp = document.createElement("input");
-   submitInp.setAttribute("type","submit");
-   submitInp.setAttribute("name","submit");
-   submitInp.setAttribute("value","Login");
-   submitInp.setAttribute("id","submit");
-   submitInp.classList.add('bg-success','border-0','text-white')
-
-   //  var GuestLoginBtn = document.createElement('button');
-   //  GuestLoginBtn.setAttribute("type","button");
-   //  GuestLoginBtn.
-   //  GuestLoginBtn.classList.add("btn-lg","btn-danger",'text-center','text-white','container-fluid');
-
-   formElem.appendChild(usernameInp);
-   formElem.appendChild(emailInp);
-   formElem.appendChild(passwordInp);
-// GuestLoginloginBTn
-   // formElem.appendChild(GuestLoginBtn);
-
-   formElem.appendChild(submitInp);
-     
-   formContLogin.append(formElem);
-   }
-}
-// register.php
-function registrationFormFetcher(){
-   formContRegistration.innerHTML= "";
-   var formElem = document.createElement("form");
-   formElem.setAttribute("method","POST");
-   formElem.setAttribute("id","registraionForm");
-   formElem.classList.add('d-flex','flex-column','py-2','my-1')
-
-
-//     name field
-    var usernameInp = document.createElement("input");
-   usernameInp.setAttribute("type","text");
-   usernameInp.setAttribute("name","userNameReg");
-   usernameInp.setAttribute("id","userNameReg");
-   usernameInp.setAttribute("placeholder","Enter userName");
-   usernameInp.setAttribute("required","");
-    // Age 
-      var AgeInp = document.createElement("input");
-   AgeInp.setAttribute("type","number");
-   AgeInp.setAttribute("name","ageReg");
-   AgeInp.setAttribute("id","ageReg");
-   AgeInp.setAttribute("placeholder","Enter Age");
-   AgeInp.setAttribute("required","");
-
-
-// email-field
-   var emailInp = document.createElement("input");
-   emailInp.setAttribute("type","email");
-   emailInp.setAttribute("name","emailReg");
-   emailInp.setAttribute("id","emailReg");
-   emailInp.setAttribute("placeholder","Enter your email");
-   emailInp.setAttribute("required","");
-
-   // password 
-      var passwordInp = document.createElement("input");
-   passwordInp.setAttribute("type","password");
-   passwordInp.setAttribute("name","passwordReg");
-   passwordInp.setAttribute("id","passwordReg");
-   passwordInp.setAttribute("placeholder","Enter password");
-   passwordInp.setAttribute("required","");
-
-   //  submit
-      var submitInp = document.createElement("input");
-   submitInp.setAttribute("type","submit");
-   submitInp.setAttribute("name","submitReg");
-   submitInp.setAttribute("value","Register");
-   submitInp.setAttribute("id","submitReg");
-   submitInp.classList.add('bg-success','border-0','text-white')
-
-   formElem.appendChild(usernameInp);
-   formElem.appendChild(AgeInp);
-   formElem.appendChild(emailInp);
-   formElem.appendChild(passwordInp);
-   formElem.appendChild(submitInp);
-
-   formContRegistration.append(formElem);
+//  password Field
+  const passwordReg = document.getElementById("passwordReg");
+// -----------------------
+const showPassword = document.getElementById('showPassword');
+if(showPassword.checked){
+   console.log("checked")
+   setAttributes("type","text")
+}else{
+   console.log("Not checked")
+   setAttributes("type","password")
 }
 
-//  rendering
-loginFormFetcher();
-registrationFormFetcher();
+
 
 
 
 //  productFetcher()-----------------------products.php
 const myProductCont = document.getElementById('myProductCont');
 function productFetcher(){
-   fetch('https://dummyjson.com/products')
+   fetch('https://dummyjson.com/products?limit=100')
   .then(res => res.json())
   .then((data)=>{
       console.log(data);
       myProductCont.innerHTML = "";
       data.products?.slice(0,7).map((d)=>{
-         var content = `<a href="" class="text-decoration-none d-flex flex-column" id=${d.id}><div>
+         var content = `<a href="#" class="text-decoration-none d-flex flex-column" id=${d.id}><div>
            <span>
               <small>
                  ${d.category}
@@ -245,9 +123,19 @@ function productFetcher(){
              </small>
            </div>
          </div></a>`;
-         return (myProductCont.innerHTML += content);
+
+         console.log(content);
+         return (
+              myProductCont.innerHTML += content
+            );
       });
   });
 }
+
+window.onload = (e) =>{
+   //  rendering categories
+fetchCategories();
+   //rendering products
 productFetcher();
+   
 };

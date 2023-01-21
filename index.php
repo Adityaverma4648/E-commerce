@@ -25,7 +25,6 @@ include './configDB/conn.php'
     <script src="https://kit.fontawesome.com/8dc03a4776.js" crossorigin="anonymous"></script>
     <!-- mystyles -->
     <link rel="stylesheet" href="./index.css">
-
 </head>
 
 <body class="Deep-Teal-Sea-1-hex bg-black d-flex flex-column">
@@ -52,8 +51,8 @@ include './configDB/conn.php'
     <!-- All products -->
     <?php include "./products.php" ?>
     <!--  ends here  -->
-    <script src="./index.js"></script>
 
+    <script src="./index.js"></script>
 </body>
 
 </html>

@@ -6,7 +6,7 @@
             Please Login And Authorize Yourself!
         </div>
     </a>
-    <a class="col-sm-6 bg-success text-decoration-none d-flex justify-content-center align-items-center ms-1" href="register.php">
+    <a class="col-sm-6 bg-success text-decoration-none d-flex justify-content-center align-items-center ms-1" href="./register.php">
         <div class=" container d-flex justify-content-center align-items-center">
             Please Register And Make Us Know You!
         </div>

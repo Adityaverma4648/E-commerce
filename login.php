@@ -23,8 +23,16 @@
 </head>
 
 <?php include "./navbar.php" ?>
+<?php
+if (isset($_POST['userNameReg']))
+?>
 <div id="formContLogin">
-    login
+    <form method="POST" id="loginForm" class="d-flex flex-column py-2 my-1">
+        <input type="email" name="userName" id="userName" placeholder="Enter userName" required>
+        <input type="text" name="email" id="email" placeholder="Enter your email" required>
+        <input type="password" name="password" id="password" placeholder="Enter password" required>
+        <input type="submit" name="submit" value="Login" id="submit" class="bg-success border-0 text-white">
+    </form>
 </div>
 
 <script src="index.js"></script>

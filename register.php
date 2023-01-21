@@ -49,5 +49,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-<div id="formContRegistration"></div>
+<div id="formContRegistration">
+    <form method="POST" id="registraionForm" class="d-flex flex-column py-1 my-1">
+        <h2 class="text-white text-center">
+            REGISTER
+        </h2>
+        <input type="text" name="userNameReg" id="userNameReg" placeholder="Enter userName" required="">
+        <input type="number" name="ageReg" id="ageReg" placeholder="Enter Age" required="">
+        <input type="email" name="emailReg" id="emailReg" placeholder="Enter your email" required="">
+        <input type="password" name="passwordReg" id="passwordReg" placeholder="Enter password" required="">
+        <span class="d-flex justify-content-between align-items-center container py-2">
+            <input type="checkbox" name="showPassword" id="showPassword" class="showPassword bg-success" style="width:10%">
+            <small class="text-start text-light" style="width: 90%;">
+                Show password
+            </small>
+        </span>
+        <hr style="background-color: white;color:white;">
+        <small class="text-light">
+            Please Provide some Additional Info..
+        </small>
+        <input type="number" name="pinCodeReg" id="pinCodeReg" placeholder="Enter your pin code" required="">
+        <input type="text" name="addressReg" id="addressReg" placeholder="Enter address" required="">
+        <input type="submit" name="submitReg" value="Register" id="submitReg" class="bg-success border-0 text-white">
+    </form>
+</div>
 <script src="./index.js"></script>
