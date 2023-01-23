@@ -3,7 +3,7 @@
     <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation"></button>
     <div class="collapse navbar-collapse" id="collapsibleNavId">
         <div class="col-sm-6 navbar-search-inp">
-            <form class="d-flex my-2 my-lg-0">
+            <form class="d-flex my-2 my-lg-0" style="width: 90%;">
                 <input class="form-control" type="text" placeholder="Search">
                 <button class=" btn btn-outline-light rounded-1 my-2 my-sm-0" type="submit">Search</button>
             </form>
@@ -14,11 +14,11 @@
                 Address/PinCode
                 <i class="fa fa-caret-down px-1"></i>
             </div>
-            <div class="text-white text-decoration-none mx-1 py-2 container-fluid d-flex justify-content-center align-items-center" data-bs-toggle="collapse" data-bs-target="#registerLogin">
+            <div class="text-white text-decoration-none  py-2 container-fluid d-flex justify-content-center align-items-center" data-bs-toggle="collapse" data-bs-target="#registerLogin">
                 Accounts/List
                 <i class="fa fa-caret-down px-1"></i>
             </div>
-            <div class="notification mx-1 py-2 container-fluid d-flex justify-content-center align-items-center" data-bs-toggle="collapse" data-bs-target="#messageListCont">
+            <div class="notification  py-2 container-fluid d-flex justify-content-center align-items-center" data-bs-toggle="collapse" data-bs-target="#messageListCont">
                 <span class=" messageCounter px-1 text-warning">
                     <?php $message = 0;
                     echo "$message"; ?>
@@ -27,11 +27,11 @@
                 msg
                 <i class="fa fa-caret-down px-1"></i>
             </div>
-            <div class="returnAndOrder mx-1 py-2 container-fluid d-flex justify-content-center align-items-center">
+            <a href="returnNorder.php" class="returnAndOrder text-decoration-none text-white py-2 container-fluid d-flex justify-content-center align-items-center">
                 Return/Order
-                <i class="fa fa-caret-down px-1"></i>
-            </div>
-            <div class="cart mx-1 py-2 container-fluid d-flex justify-content-center align-items-center">
+                <!-- <i class="fa fa-caret-down px-1"></i> -->
+            </a>
+            <a href="cart.php" class="cart text-decoration-none text-white py-2 container-fluid d-flex justify-content-center align-items-center">
                 <span class="cartCounter px-2 text-warning">
                     <?php
                     $counter = 0;
@@ -41,8 +41,7 @@
                 <i class="fa fa-cart-plus px-1">
                 </i>
                 Cart
-                <i class="fa fa-caret-down px-1"></i>
-            </div>
+            </a>
         </div>
     </div>
 </nav>

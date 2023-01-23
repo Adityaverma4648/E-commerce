@@ -17,7 +17,7 @@
     <!-- mystyles -->
     <style>
         #myProductCont {
-            height: 30vh;
+            height: 40vh;
             background-color: #41BFB3;
         }
 
@@ -72,7 +72,16 @@
             Next
         </button>
     </div>
-    <script src="index.js"></script>
+    <script>
+        const myProductPagination = document.getElementById("myProductPagination");
+        myProductPagination.addEventListener("click", (e) => {
+            if (e.target.tagName === "SPAN" && e.target.className === "val") {
+                var Page = e.target.innerHTML;
+                console.log(Page);
+            }
+        })
+    </script>
+    <script type="text" src="index.js"></script>
 </body>
 
 </html>

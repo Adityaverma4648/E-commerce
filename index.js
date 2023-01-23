@@ -9,7 +9,7 @@ const fetchCategories = ()=>{
     fetch('https://dummyjson.com/products/categories')
 .then(res => res.json())
 .then((data)=>{
-         categoriesCont.innerHTML = 'h'; 
+         categoriesCont.innerHTML = ''; 
         data?.map((d)=>{
             const catText = d;
             var catElem = `<li><button type="button"><small class="`+catText+`">${catText}</small></button></li>`;
@@ -78,16 +78,16 @@ categoriesCont.addEventListener("click",(e)=>{
 //  form Password Displayer
 
 //  password Field
-//   const passwordReg = document.getElementById("passwordReg");
+  const passwordReg = document.getElementById("passwordReg");
 // -----------------------
-// const showPassword = document.getElementById('showPassword');
-// if(showPassword.checked){
-//    console.log("checked")
-//    setAttributes("type","text")
-// }else{
-//    console.log("Not checked")
-//    setAttributes("type","password")
-// }
+const showPassword = document.getElementById('showPassword');
+if(showPassword.checked){
+   console.log("checked")
+   setAttributes("type","text")
+}else{
+   console.log("Not checked")
+   setAttributes("type","password")
+}
 
 
 
@@ -129,13 +129,6 @@ function productFetcher(){
 }
 
 
-const myProductPagination = document.getElementById("myProductPagination");
-myProductPagination.addEventListener("click",(e)=>{
-   if(e.target.tagName === "SPAN"  && e.target.className === "val"){
-      var Page = e.target.innerHTML;
-      console.log(Page);
-   }
-})
 
 
 window.onload = (e) =>{

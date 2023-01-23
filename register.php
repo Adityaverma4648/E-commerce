@@ -75,8 +75,23 @@ include "./configDB/session.php";
         $query = "INSERT into `userregisteration`(userNameReg,ageReg,emailReg,passwordReg,reg_date) VALUES('$userNameReg','$ageReg','$emailReg','" . md5($passwordReg) . "','$reg_date')";
         //   checking result
         $result = mysqli_query($conn, $query);
-        if ($result) {
-            echo "Please Login to end all misery";
+
+        // checking uniqueness of username
+        $sql = "SELECT * FROM userregisteration where (userNameReg = '$userNameReg' or emailReg = '$emailReg');";
+        $res = mysqli_query($conn, $sql);
+
+        if (mysqli_num_rows($res) > 0) {
+            $row = mysqli_fetch_assoc($res);
+            if ($emailReg == isset($row['email'])) {
+                echo "<small class='text-danger text-center'>Email Already exits*<small>";
+            }
+            if ($userNameReg == isset($row['userNameReg']))
+                echo "<small class='text-danger text-center'>Username Already exits*<small>";
+        } else {
+            if ($result) {
+                header("Location : login.php");
+                echo "<small class='text-danger'>Please Login To completely authorize urself</small>";
+            }
         }
     }
     ?>
@@ -104,6 +119,7 @@ include "./configDB/session.php";
             <input type="submit" name="submitReg" value="Register" id="submitReg" class="bg-success border-0 text-white">
         </form>
     </div>
+    <script src="index.js"></script>
 </body>
 
 </html>

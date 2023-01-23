@@ -66,17 +66,17 @@ if (isset($_POST['userNameReg'])) {
     $result = mysqli_query($conn, $query) or die("galat h sab bc");
 
     $rows = mysqli_num_rows($result);
-    //     if ($rows == 1) {
-    //         $_SESSION['userName'] = $userName;
-    //         header("Location: index.php");
-    //     } else {
-    //         echo "errors";
-    //     } 
+    if ($rows == 1) {
+        // $_SESSION['userName'] = $userName;
+        header("Location: index.php");
+    } else {
+        echo "errors";
+    }
 }
 ?>
 <div id="formContLogin">
     <form method="POST" id="loginForm" class="d-flex flex-column py-2 my-1">
-        <input type="email" name="userName" id="userName" placeholder="Enter userName" required>
+        <input type="text" name="userName" id="userName" placeholder="Enter userName" required>
         <input type="text" name="email" id="email" placeholder="Enter your email" required>
         <input type="password" name="password" id="password" placeholder="Enter password" required>
         <input type="submit" name="submit" value="Login" id="submit" class="bg-success border-0 text-white">

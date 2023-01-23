@@ -159,7 +159,9 @@ include './configDB/conn.php'
     <?php include "./hero.php" ?>
     <!-- ends here -->
 
-
+    <div class="px-1 container text-white h5">
+        All Products
+    </div>
     <!-- All products -->
     <?php include "./products.php" ?>
     <!--  ends here  -->
