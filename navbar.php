@@ -46,11 +46,3 @@
         </div>
     </div>
 </nav>
-
-<?php
-
-// if()
-include '../E-commerce/DropDowns/accountDropDown.php';
-include '../E-commerce/DropDowns/messageDropDown.php';
-include '../E-commerce/DropDowns/returnOrderDropDown.php';
-?>

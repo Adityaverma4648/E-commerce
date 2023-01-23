@@ -25,6 +25,118 @@ include './configDB/conn.php'
     <script src="https://kit.fontawesome.com/8dc03a4776.js" crossorigin="anonymous"></script>
     <!-- mystyles -->
     <link rel="stylesheet" href="./index.css">
+    <style>
+        .closeChoosenCategory {
+            height: 5vh;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .categoriesCont {
+            height: 5vh;
+            width: 100vw;
+            background-color: #BF0F0F;
+        }
+
+        .categoriesCont li {
+            height: 95%;
+            list-style: none;
+            margin: 0px 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            user-select: none;
+        }
+
+        .categoriesCont li button {
+            background: none;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            color: #fff;
+        }
+
+        .categoriesCont li:hover {
+            border: 1px solid white;
+        }
+
+        .choosenCatProductsCont {
+            height: 40vh;
+            width: 25vw;
+            background-color: #41BFB3;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0px 3px;
+        }
+
+        .choosenCatProductsCont .path {
+            height: 10%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0px 2px;
+            font-weight: 700;
+        }
+
+        .choosenCatProductsCont .body .imgCont {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .choosenCatProductsCont .body .imgCont .smallShow {
+            width: 25%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .choosenCatProductsCont .body .imgCont .smallShow img {
+            height: 5vh;
+            width: 5vh;
+            margin: 2px 0px;
+            border: 4px solid #fff;
+            background-color: #012340;
+            cursor: pointer;
+        }
+
+        .choosenCatProductsCont .body .imgCont .largeShow {
+            width: 85%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .choosenCatProductsCont .body .imgCont .largeShow img {
+            width: 78%;
+        }
+
+        .choosenCatProductsCont #button-group button {
+            background: none;
+            border: none;
+        }
+
+        .navbar-search-inp form input {
+            border-radius: 5px 0px 0px 5px;
+        }
+
+        .navbar-search-inp form button {
+            border-radius: 0px 5px 5px 0px;
+        }
+
+        .navbarEssentials div {
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body class="Deep-Teal-Sea-1-hex bg-black d-flex flex-column">

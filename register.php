@@ -2,14 +2,14 @@
 include "./configDB/conn.php";
 include "./configDB/session.php";
 ?>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--  the title -->
-    <title>register</title>
-
+    <title>Register</title>
     <!--  google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,55 +22,88 @@ include "./configDB/session.php";
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- myIcons -->
     <script src="https://kit.fontawesome.com/8dc03a4776.js" crossorigin="anonymous"></script>
-    <!-- mystyles -->
-    <link rel="stylesheet" href="./index.css">
+    <style>
+        #formContRegistration {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
+        #formContRegistration form {
+            padding: 10px 5px;
+            height: 60vh;
+            width: 35vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #012340;
+        }
+
+        #formContRegistration input {
+            width: 98%;
+            margin: 3px 0px;
+            padding: 0.5rem 2px;
+            border-radius: 2px;
+        }
+
+        .getterButtons {
+            padding: 5px 0px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-right: 2px solid blue;
+        }
+    </style>
 </head>
-<?php
-include "./navbar.php"
-?>
 
-<?php
+<body>
+    <?php
+    include "./navbar.php";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // username
-    $userNameReg = mysqli_real_escape_string($conn, $_POST["userNameReg"]);
-    $ageReg = mysqli_real_escape_string($conn, $_POST["ageReg"]);
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // username
+        $userNameReg = mysqli_real_escape_string($conn, $_POST["userNameReg"]);
+        $ageReg = mysqli_real_escape_string($conn, $_POST["ageReg"]);
 
-    $emailReg = mysqli_real_escape_string($conn, $_POST["emailReg"]);
-    $passwordReg = mysqli_real_escape_string($conn, $_POST["passwordReg"]);
-    $reg_date = date("Y-m-d H:i:s");
+        $emailReg = mysqli_real_escape_string($conn, $_POST["emailReg"]);
+        $passwordReg = mysqli_real_escape_string($conn, $_POST["passwordReg"]);
+        $reg_date = date("Y-m-d H:i:s");
 
-    $query = "INSERT into `userregisteration`(userNameReg,ageReg,emailReg,passwordReg,reg_date) VALUES('$userNameReg','$ageReg','$emailReg','" . md5($passwordReg) . "','$reg_date')";
-    //   checking result
-    $result = mysqli_query($conn, $query);
-    if ($result) {
-        echo "Please Login to end all misery";
+        $query = "INSERT into `userregisteration`(userNameReg,ageReg,emailReg,passwordReg,reg_date) VALUES('$userNameReg','$ageReg','$emailReg','" . md5($passwordReg) . "','$reg_date')";
+        //   checking result
+        $result = mysqli_query($conn, $query);
+        if ($result) {
+            echo "Please Login to end all misery";
+        }
     }
-}
-?>
-<div id="formContRegistration">
-    <form method="POST" id="registraionForm" class="d-flex flex-column py-1 my-1">
-        <h2 class="text-white text-center">
-            REGISTER
-        </h2>
-        <input type="text" name="userNameReg" id="userNameReg" placeholder="Enter userName" required="">
-        <input type="number" name="ageReg" id="ageReg" placeholder="Enter Age" required="">
-        <input type="email" name="emailReg" id="emailReg" placeholder="Enter your email" required="">
-        <input type="password" name="passwordReg" id="passwordReg" placeholder="Enter password" required="">
-        <span class="d-flex justify-content-between align-items-center container py-2">
-            <input type="checkbox" name="showPassword" id="showPassword" class="showPassword bg-success" style="width:10%">
-            <small class="text-start text-light" style="width: 90%;">
-                Show password
+    ?>
+    <div id="formContRegistration">
+        <form method="POST" id="registraionForm" class="d-flex flex-column py-1 my-1">
+            <h2 class="text-white text-center">
+                REGISTER
+            </h2>
+            <input type="text" name="userNameReg" id="userNameReg" placeholder="Enter userName" required="">
+            <input type="number" name="ageReg" id="ageReg" placeholder="Enter Age" required="">
+            <input type="email" name="emailReg" id="emailReg" placeholder="Enter your email" required="">
+            <input type="password" name="passwordReg" id="passwordReg" placeholder="Enter password" required="">
+            <span class="d-flex justify-content-between align-items-center container py-2">
+                <input type="checkbox" name="showPassword" id="showPassword" class="showPassword bg-success" style="width:10%">
+                <small class="text-start text-light" style="width: 90%;">
+                    Show password
+                </small>
+            </span>
+            <hr style="background-color: white;color:white;">
+            <small class="text-light">
+                Please Provide some Additional Info..
             </small>
-        </span>
-        <hr style="background-color: white;color:white;">
-        <small class="text-light">
-            Please Provide some Additional Info..
-        </small>
-        <input type="number" name="pinCodeReg" id="pinCodeReg" placeholder="Enter your pin code" required="">
-        <input type="text" name="addressReg" id="addressReg" placeholder="Enter address" required="">
-        <input type="submit" name="submitReg" value="Register" id="submitReg" class="bg-success border-0 text-white">
-    </form>
-</div>
-<script src="./index.js"></script>
+            <input type="number" name="pinCodeReg" id="pinCodeReg" placeholder="Enter your pin code" required="">
+            <input type="text" name="addressReg" id="addressReg" placeholder="Enter address" required="">
+            <input type="submit" name="submitReg" value="Register" id="submitReg" class="bg-success border-0 text-white">
+        </form>
+    </div>
+</body>
+
+</html>

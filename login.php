@@ -1,3 +1,10 @@
+<?php
+include "./configDB/conn.php";
+include "./configDB/session.php";
+?>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,13 +25,54 @@
     <!-- myIcons -->
     <script src="https://kit.fontawesome.com/8dc03a4776.js" crossorigin="anonymous"></script>
     <!-- mystyles -->
-    <link rel="stylesheet" href="./index.css">
+    <style>
+        #formContLogin {
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
+        #formContLogin form {
+            padding: 10px 5px;
+            height: 60vh;
+            width: 35vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #012340;
+        }
+
+        #formContLogin input {
+            width: 98%;
+            margin: 3px 0px;
+            padding: 0.5rem 2px;
+            border-radius: 2px;
+        }
+    </style>
 </head>
 
 <?php include "./navbar.php" ?>
 <?php
-if (isset($_POST['userNameReg']))
+if (isset($_POST['userNameReg'])) {
+    $userName = mysqli_real_escape_string($conn, $_POST["userName"]);
+    $email = mysqli_real_escape_string($conn, $_POST["email"]);
+    $password = mysqli_real_escape_string($conn, $_POST["password"]);
+
+
+    $query = "SELECT * FROM `userregistration` WHERE usernameReg = '$userName' AND passwordReg = '" . md5($password) . "'";
+    $result = mysqli_query($conn, $query) or die("galat h sab bc");
+
+    $rows = mysqli_num_rows($result);
+    //     if ($rows == 1) {
+    //         $_SESSION['userName'] = $userName;
+    //         header("Location: index.php");
+    //     } else {
+    //         echo "errors";
+    //     } 
+}
 ?>
 <div id="formContLogin">
     <form method="POST" id="loginForm" class="d-flex flex-column py-2 my-1">

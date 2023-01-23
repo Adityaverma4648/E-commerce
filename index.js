@@ -1,4 +1,3 @@
-
 const categoriesCont = document.getElementById("categoriesCont");
 const choosenCategoryCont = document.getElementById("choosenCategoryCont");
 const parentCloseBtn = document.querySelector(".closeBtn");
@@ -79,16 +78,16 @@ categoriesCont.addEventListener("click",(e)=>{
 //  form Password Displayer
 
 //  password Field
-  const passwordReg = document.getElementById("passwordReg");
+//   const passwordReg = document.getElementById("passwordReg");
 // -----------------------
-const showPassword = document.getElementById('showPassword');
-if(showPassword.checked){
-   console.log("checked")
-   setAttributes("type","text")
-}else{
-   console.log("Not checked")
-   setAttributes("type","password")
-}
+// const showPassword = document.getElementById('showPassword');
+// if(showPassword.checked){
+//    console.log("checked")
+//    setAttributes("type","text")
+// }else{
+//    console.log("Not checked")
+//    setAttributes("type","password")
+// }
 
 
 
@@ -100,16 +99,15 @@ function productFetcher(){
    fetch('https://dummyjson.com/products?limit=100')
   .then(res => res.json())
   .then((data)=>{
-      console.log(data);
       myProductCont.innerHTML = "";
       data.products?.slice(0,7).map((d)=>{
-         var content = `<a href="#" class="text-decoration-none d-flex flex-column" id=${d.id}><div>
+         var content = `<a href="#" class="text-decoration-none d-flex flex-column justify-content-center align-items-center" id=${d.id}><div class="d-flex flex-column justify-content-center align-items-center">
            <span>
               <small>
                  ${d.category}
               </small>
            </span>
-           <div class="img-responsive">
+           <div class="imgCont img-responsive">
              <img src=${d.thumbnail} alt=${d.title}>
            </div>
            <div>
@@ -123,14 +121,22 @@ function productFetcher(){
              </small>
            </div>
          </div></a>`;
-
-         console.log(content);
          return (
               myProductCont.innerHTML += content
             );
       });
   });
 }
+
+
+const myProductPagination = document.getElementById("myProductPagination");
+myProductPagination.addEventListener("click",(e)=>{
+   if(e.target.tagName === "SPAN"  && e.target.className === "val"){
+      var Page = e.target.innerHTML;
+      console.log(Page);
+   }
+})
+
 
 window.onload = (e) =>{
    //  rendering categories
