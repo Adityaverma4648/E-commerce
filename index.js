@@ -75,22 +75,14 @@ categoriesCont.addEventListener("click",(e)=>{
    }
 })
 }
-//  form Password Displayer
 
-//  password Field
-  const passwordReg = document.getElementById("passwordReg");
-// -----------------------
-const showPassword = document.getElementById('showPassword');
-if(showPassword.checked){
-   console.log("checked")
-   setAttributes("type","text")
-}else{
-   console.log("Not checked")
-   setAttributes("type","password")
-}
-
-
-
+ const myProductPagination = document.getElementById("myProductPagination");
+        myProductPagination.addEventListener("click", (e) => {
+            if (e.target.tagName === "SPAN") {
+                var Page = e.target.innerHTML;
+                console.log(Page);
+            }
+        })
 
 
 //  productFetcher()-----------------------products.php

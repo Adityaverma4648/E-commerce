@@ -1,6 +1,41 @@
 <?php
 include "./configDB/conn.php";
 include "./configDB/session.php";
+
+include "./navbar.php";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // username
+    $userNameReg = mysqli_real_escape_string($conn, $_POST["userNameReg"]);
+    $ageReg = mysqli_real_escape_string($conn, $_POST["ageReg"]);
+
+    $emailReg = mysqli_real_escape_string($conn, $_POST["emailReg"]);
+    $passwordReg = mysqli_real_escape_string($conn, $_POST["passwordReg"]);
+    $reg_date = date("Y-m-d H:i:s");
+
+    // checking uniqueness of username
+    $sql = "SELECT * FROM userregisteration where (userNameReg = '$userNameReg' or emailReg = '$emailReg');";
+    $res = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($res) > 0) {
+        $row = mysqli_fetch_assoc($res);
+        if ($emailReg == isset($row['email'])) {
+            echo "<small class='text-danger text-center'>Email Already exits*<small>";
+            $conn->close();
+        }
+        if ($userNameReg == isset($row['userNameReg']))
+            echo "<small class='text-danger text-center'>Username Already exits*<small>";
+    } else {
+        $query = "INSERT into `userregisteration`(userNameReg,ageReg,emailReg,passwordReg,reg_date) VALUES('$userNameReg','$ageReg','$emailReg','" . md5($passwordReg) . "','$reg_date')";
+        //   checking result
+        $result = mysqli_query($conn, $query);
+        if ($result) {
+            header("Location:login.php");
+            die();
+            echo "<small class='text-danger'>Please Login To completely authorize urself</small>";
+        }
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,41 +95,7 @@ include "./configDB/session.php";
 </head>
 
 <body>
-    <?php
-    include "./navbar.php";
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // username
-        $userNameReg = mysqli_real_escape_string($conn, $_POST["userNameReg"]);
-        $ageReg = mysqli_real_escape_string($conn, $_POST["ageReg"]);
-
-        $emailReg = mysqli_real_escape_string($conn, $_POST["emailReg"]);
-        $passwordReg = mysqli_real_escape_string($conn, $_POST["passwordReg"]);
-        $reg_date = date("Y-m-d H:i:s");
-
-        $query = "INSERT into `userregisteration`(userNameReg,ageReg,emailReg,passwordReg,reg_date) VALUES('$userNameReg','$ageReg','$emailReg','" . md5($passwordReg) . "','$reg_date')";
-        //   checking result
-        $result = mysqli_query($conn, $query);
-
-        // checking uniqueness of username
-        $sql = "SELECT * FROM userregisteration where (userNameReg = '$userNameReg' or emailReg = '$emailReg');";
-        $res = mysqli_query($conn, $sql);
-
-        if (mysqli_num_rows($res) > 0) {
-            $row = mysqli_fetch_assoc($res);
-            if ($emailReg == isset($row['email'])) {
-                echo "<small class='text-danger text-center'>Email Already exits*<small>";
-            }
-            if ($userNameReg == isset($row['userNameReg']))
-                echo "<small class='text-danger text-center'>Username Already exits*<small>";
-        } else {
-            if ($result) {
-                header("Location : login.php");
-                echo "<small class='text-danger'>Please Login To completely authorize urself</small>";
-            }
-        }
-    }
-    ?>
     <div id="formContRegistration">
         <form method="POST" id="registraionForm" class="d-flex flex-column py-1 my-1">
             <h2 class="text-white text-center">
@@ -119,6 +120,22 @@ include "./configDB/session.php";
             <input type="submit" name="submitReg" value="Register" id="submitReg" class="bg-success border-0 text-white">
         </form>
     </div>
+
+    <script>
+        //  form Password Displayer
+
+        //  password Field
+        const passwordReg = document.getElementById("passwordReg");
+        // -----------------------
+        const showPassword = document.getElementById('showPassword');
+        if (showPassword.checked) {
+            console.log("checked");
+            passwordReg.setAttributes("type", "text");
+        } else {
+            console.log("Not checked");
+            passwordReg.setAttributes("type", "password")
+        }
+    </script>
     <script src="index.js"></script>
 </body>
 

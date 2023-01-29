@@ -73,13 +73,7 @@
         </button>
     </div>
     <script>
-        const myProductPagination = document.getElementById("myProductPagination");
-        myProductPagination.addEventListener("click", (e) => {
-            if (e.target.tagName === "SPAN" && e.target.className === "val") {
-                var Page = e.target.innerHTML;
-                console.log(Page);
-            }
-        })
+
     </script>
     <script type="text" src="index.js"></script>
 </body>

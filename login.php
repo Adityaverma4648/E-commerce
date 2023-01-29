@@ -1,7 +1,27 @@
 <?php
 include "./configDB/conn.php";
 include "./configDB/session.php";
+include "./navbar.php";
+if (isset($_POST['userNameReg'])) {
+    $userName = mysqli_real_escape_string($conn, $_POST["userName"]);
+    $email = mysqli_real_escape_string($conn, $_POST["email"]);
+    $password = mysqli_real_escape_string($conn, $_POST["password"]);
+
+
+    $query = "SELECT * FROM `userregistration` WHERE usernameReg = '$userName' AND passwordReg = '" . md5($password) . "'";
+    $result = mysqli_query($conn, $query) or die(mysqli_error($conn));
+
+    $rows = mysqli_num_rows($result);
+    if ($rows == 1) {
+        // $_SESSION['userName'] = $userName;
+        header("Location: index.php");
+    } else {
+        echo "errors";
+    }
+}
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,33 +74,17 @@ include "./configDB/session.php";
     </style>
 </head>
 
-<?php include "./navbar.php" ?>
-<?php
-if (isset($_POST['userNameReg'])) {
-    $userName = mysqli_real_escape_string($conn, $_POST["userName"]);
-    $email = mysqli_real_escape_string($conn, $_POST["email"]);
-    $password = mysqli_real_escape_string($conn, $_POST["password"]);
-
-
-    $query = "SELECT * FROM `userregistration` WHERE usernameReg = '$userName' AND passwordReg = '" . md5($password) . "'";
-    $result = mysqli_query($conn, $query) or die("galat h sab bc");
-
-    $rows = mysqli_num_rows($result);
-    if ($rows == 1) {
-        // $_SESSION['userName'] = $userName;
-        header("Location: index.php");
-    } else {
-        echo "errors";
-    }
-}
-?>
 <div id="formContLogin">
     <form method="POST" id="loginForm" class="d-flex flex-column py-2 my-1">
+        <center>
+            <h4 class="text-white">
+                LOGIN
+            </h4>
+        </center>
         <input type="text" name="userName" id="userName" placeholder="Enter userName" required>
         <input type="text" name="email" id="email" placeholder="Enter your email" required>
         <input type="password" name="password" id="password" placeholder="Enter password" required>
         <input type="submit" name="submit" value="Login" id="submit" class="bg-success border-0 text-white">
     </form>
 </div>
-
 <script src="index.js"></script>
