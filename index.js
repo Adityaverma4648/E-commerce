@@ -76,41 +76,32 @@ categoriesCont.addEventListener("click",(e)=>{
 })
 }
 
- const myProductPagination = document.getElementById("myProductPagination");
-        myProductPagination.addEventListener("click", (e) => {
-            if (e.target.tagName === "SPAN") {
-                var Page = e.target.innerHTML;
-                console.log(Page);
-            }
-        })
 
 
 //  productFetcher()-----------------------products.php
 const myProductCont = document.getElementById('myProductCont');
-function productFetcher(){
+function productFetcher(page){
    fetch('https://dummyjson.com/products?limit=100')
   .then(res => res.json())
   .then((data)=>{
       myProductCont.innerHTML = "";
-      data.products?.slice(0,7).map((d)=>{
-         var content = `<a href="#" class="text-decoration-none d-flex flex-column justify-content-center align-items-center" id=${d.id}><div class="d-flex flex-column justify-content-center align-items-center">
-           <span>
-              <small>
-                 ${d.category}
-              </small>
-           </span>
+      data.products?.slice(page,page+7).map((d)=>{
+         console.log(data.products.slice(page,page+7))
+         var path = 'https://localhost/E-commerce/products/' + d.id;
+         // console.log(path)
+         var price = (d.price).toFixed(2);
+         var content = `<a href=${path} class="text-decoration-none d-flex flex-column justify-content-center align-items-center" id=${d.id}>
            <div class="imgCont img-responsive">
              <img src=${d.thumbnail} alt=${d.title}>
            </div>
-           <div>
              <strong>
                <h5>
-                 ${d.title} 
+                 ${d.title} (${d.brand})
                </h5>
+                <small>
+                 `+ price +`
+               </small>
              </strong>
-             <small>
-                ${d.brand} 
-             </small>
            </div>
          </div></a>`;
          return (
@@ -119,14 +110,20 @@ function productFetcher(){
       });
   });
 }
-
-
-
+ const myProductPagination = document.getElementById("myProductPagination");
+ var Page = "";
+        myProductPagination.addEventListener("click", (e) => {
+            if (e.target.tagName === "SPAN") {
+                Page = e.target.innerHTML;
+                productFetcher(Page)
+                console.log(Page);
+            }
+        })
 
 window.onload = (e) =>{
    //  rendering categories
 fetchCategories();
    //rendering products
-productFetcher();
+productFetcher(1);
    
 };

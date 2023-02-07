@@ -13,7 +13,7 @@ if (isset($_POST['userNameReg'])) {
 
     $rows = mysqli_num_rows($result);
     if ($rows == 1) {
-        // $_SESSION['userName'] = $userName;
+        $_SESSION['userName'] = $userName;
         header("Location: index.php");
     } else {
         echo "errors";

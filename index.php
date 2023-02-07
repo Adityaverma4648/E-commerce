@@ -136,6 +136,41 @@ include './configDB/conn.php'
         .navbarEssentials div {
             cursor: pointer;
         }
+
+        /*  products.php */
+        #myProductCont {
+            /* background-color: #BF0F0F; */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #myProductCont a {
+            background-color: #012340;
+            height: 40vh;
+            width: 24vw;
+            margin: 2px 2px;
+            text-align: center;
+        }
+
+        .imgCont {
+            /* background-color: yellow; */
+            width: 100%;
+            height: 30vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .imgCont img {
+            width: 90%;
+        }
+
+        .val {
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -166,7 +201,7 @@ include './configDB/conn.php'
     <?php include "./products.php" ?>
     <!--  ends here  -->
 
-    <script src="index.js"></script>
+    <script src="./index.js"></script>
 </body>
 
 </html>
