@@ -85,8 +85,7 @@ function productFetcher(page){
   .then(res => res.json())
   .then((data)=>{
       myProductCont.innerHTML = "";
-      data.products?.slice(page,page+7).map((d)=>{
-         console.log(data.products.slice(page,page+7))
+      data.products?.slice((page-1)*10,((page-1)*10)+7).map((d)=>{
          var path = 'https://localhost/E-commerce/products/' + d.id;
          // console.log(path)
          var price = (d.price).toFixed(2);
@@ -99,9 +98,14 @@ function productFetcher(page){
                  ${d.title} (${d.brand})
                </h5>
                 <small>
-                 `+ price +`
+                 `+ price +`.Rs
                </small>
              </strong>
+           </div>
+           <div class="button-group">
+           <button type="button" class="btn btn-danger-outline><i class="fa fa-heart"></i>Save</button>
+           <button type="button" class="btn btn-danger-success><i class="fa fa-Cart"></i>AddToCart</button>
+
            </div>
          </div></a>`;
          return (

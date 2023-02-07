@@ -20,4 +20,3 @@
         Next
     </button>
 </div>
-<script type="text" src="index.js"></script>
