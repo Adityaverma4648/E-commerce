@@ -2,19 +2,22 @@
 include "./configDB/conn.php";
 include "./configDB/session.php";
 include "./navbar.php";
-if (isset($_POST['userNameReg'])) {
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $userName = mysqli_real_escape_string($conn, $_POST["userName"]);
     $email = mysqli_real_escape_string($conn, $_POST["email"]);
     $password = mysqli_real_escape_string($conn, $_POST["password"]);
 
 
-    $query = "SELECT * FROM `userregistration` WHERE usernameReg = '$userName' AND passwordReg = '" . md5($password) . "'";
+    $query = "SELECT * FROM `userregisteration` WHERE usernameReg = '$userName' AND passwordReg = '" . md5($password) . "'";
     $result = mysqli_query($conn, $query) or die(mysqli_error($conn));
 
     $rows = mysqli_num_rows($result);
     if ($rows == 1) {
+        $_SESSION['loggedInStatus'] = true;
         $_SESSION['userName'] = $userName;
-        header("Location: index.php");
+        $loginDate = date("Y-m-d H:i:s");
+        $query = "INSERT into `login` (userName,email,loginDate) VALUES ($userName,$email,$loginDate)";
+        header("Location:index.php");
     } else {
         echo "errors";
     }

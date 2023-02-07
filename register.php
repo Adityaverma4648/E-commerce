@@ -1,7 +1,5 @@
 <?php
 include "./configDB/conn.php";
-include "./configDB/session.php";
-
 include "./navbar.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

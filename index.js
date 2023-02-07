@@ -43,7 +43,7 @@ categoriesCont.addEventListener("click",(e)=>{
         .then(res => res.json())
         .then((data)=>{
             // console.log(data)
-             choosenCategoryCont.innerHTML = "h";
+             choosenCategoryCont.innerHTML = "";
 
              data.products.map((d)=>{
               const category = d.category;
@@ -61,7 +61,7 @@ categoriesCont.addEventListener("click",(e)=>{
               <div><h5 class="px-2"><strong>${brand}</strong></h5>
               <div class="bg-success text-center">Only at  <strong>${price}-Rs</strong>
               <span class="text-decoration-line-through">(${marketValue}-Rs)</span></div>
-              <span class="py-1 button-group text-white" id="button-group"><button type="button" class="col-sm-6 py-1"><i class="fa fa-cart-plus"></i>Cart</button><button type="button" class="col-sm-6 py-1"><i class="fa fa-star"></i>Favourites</button></span></div></div></div>`
+              <span class="py-2 button-group text-white" id="button-group"><button type="button" class="col-sm-6 py-1"><i class="fa fa-cart-plus"></i>Cart</button><button type="button" class="col-sm-6 py-1"><i class="fa fa-star"></i>Favourite</button></span></div></div></div>`
               return(
               choosenCategoryCont.innerHTML += content
               )
