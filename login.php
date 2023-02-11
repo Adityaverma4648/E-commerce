@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $query = "INSERT into `login` (userName,email,loginDate) VALUES ($userName,$email,$loginDate)";
         header("Location:index.php");
     } else {
-        echo "errors";
+        echo '<center class="text-danger">Account not Found!</center>';
     }
 }
 ?>

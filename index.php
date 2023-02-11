@@ -1,5 +1,6 @@
 <?php
-include './configDB/conn.php'
+include './configDB/conn.php';
+include './configDB/session.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">

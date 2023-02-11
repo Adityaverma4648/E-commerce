@@ -103,8 +103,8 @@ function productFetcher(page){
              </strong>
            </div>
            <div class="button-group">
-           <button type="button" class="btn btn-danger-outline><i class="fa fa-heart"></i>Save</button>
-           <button type="button" class="btn btn-danger-success><i class="fa fa-Cart"></i>AddToCart</button>
+           <button type="button" class="btn btn-danger-outline"><i class="fa fa-heart"></i>Save</button>
+           <button type="button" class="btn btn-danger-success"><i class="fa fa-Cart"></i>AddToCart</button>
 
            </div>
          </div></a>`;

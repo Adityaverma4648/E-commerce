@@ -42,3 +42,11 @@ body {
 body::-webkit-scrollbar {
   display: none;
 }
+
+
+
+@media only screen and (max-width:1000px){
+  #searchInp{
+      width: 25vw;
+  }
+}  
