@@ -1,4 +1,5 @@
 <div class="container-fluid text-white d-flex flex-wrap justify-content-center align-items-center" id="myProductCont">
+
 </div>
 <div class="myProductPagination container d-flex justify-content-center align-items-center bg-transparent p-3 text-white rounded-3" id="myProductPagination">
     <button class="btn btn-outline-warning rounded-0 text-white">

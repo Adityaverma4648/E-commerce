@@ -1,3 +1,8 @@
+<?php
+include './configDB/conn.php';
+include './configDB/session.php';
+include 'navbar.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,9 +26,7 @@
 </head>
 
 <body>
-    <?php
-    include 'navbar.php';
-    ?>
+
 </body>
 
 </html>

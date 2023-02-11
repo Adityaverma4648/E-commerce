@@ -57,7 +57,7 @@ categoriesCont.addEventListener("click",(e)=>{
                  const replaceMentImg = "https://cdn.shopify.com/s/files/1/0008/9260/0356/files/nav-best_600x600_variety_600x.png?v=1619452753";
               const imageArray = [replaceMentImg,replaceMentImg,replaceMentImg, replaceMentImg]
          
-              var content = `<div class="choosenCatProductsCont"><div class="path bg-success"><small>${category} > ${brand}</small></div><div class="body"><div class="imgCont"><div class="smallShow mx-1"><img src="`+ imageArray[0] +` alt="prod-img"><img src="`+ imageArray[1] +` alt="prod-img"><img src="`+ imageArray[2] +` alt="prod-img"><img src="`+ imageArray[3] +` alt="prod-img"></div><div class="largeShow"><img src="`+ imageArray[0] +` alt="prod-img"></div></div>
+              var content = `<div class="choosenCatProductsCont py-2"><div class="path bg-success"><small>${category} > ${brand}</small></div><div class="body"><div class="imgCont"><div class="smallShow mx-1"><img src="`+ imageArray[0] +` alt="prod-img"><img src="`+ imageArray[1] +` alt="prod-img"><img src="`+ imageArray[2] +` alt="prod-img"><img src="`+ imageArray[3] +` alt="prod-img"></div><div class="largeShow"><img src="`+ imageArray[0] +` alt="prod-img"></div></div>
               <div><h5 class="px-2"><strong>${brand}</strong></h5>
               <div class="bg-success text-center">Only at  <strong>${price}-Rs</strong>
               <span class="text-decoration-line-through">(${marketValue}-Rs)</span></div>
