@@ -34,11 +34,14 @@ include './configDB/session.php';
             -moz-user-select: none;
             -ms-user-select: none;
             user-select: none;
+            right: 0;
+            position: absolute;
+
         }
 
         .categoriesCont {
             height: 5vh;
-            width: 100vw;
+            width: 98vw;
             background-color: #BF0F0F;
         }
 
@@ -65,11 +68,13 @@ include './configDB/session.php';
         }
 
         .choosenCatProductsCont {
-            height: 40vh;
+            height: 42vh;
             width: 25vw;
             background-color: #41BFB3;
             color: #fff;
             display: flex;
+
+            padding: 10px 0px;
             flex-direction: column;
             justify-content: center;
             align-items: center;
@@ -172,6 +177,68 @@ include './configDB/session.php';
         .val {
             cursor: pointer;
         }
+
+        .button-group button:nth-child(2) {
+            color: green;
+            border: 1px solid green;
+            background-color: #fff;
+        }
+
+        .button-group button:nth-child(1) {
+            color: #BF0F0F;
+            border: 1px solid #BF0F0F;
+            background-color: #fff;
+        }
+
+        .button-group :hover {
+            animation: shake 2s infinite ease-in-out;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translate(1px, 1px) rotate(0deg);
+            }
+
+            10% {
+                transform: translate(-1px, -2px) rotate(-1deg);
+            }
+
+            20% {
+                transform: translate(-3px, 0px) rotate(1deg);
+            }
+
+            30% {
+                transform: translate(3px, 2px) rotate(0deg);
+            }
+
+            40% {
+                transform: translate(1px, -1px) rotate(1deg);
+            }
+
+            50% {
+                transform: translate(-1px, 2px) rotate(-1deg);
+            }
+
+            60% {
+                transform: translate(-3px, 1px) rotate(0deg);
+            }
+
+            70% {
+                transform: translate(3px, 1px) rotate(-1deg);
+            }
+
+            80% {
+                transform: translate(-1px, -1px) rotate(1deg);
+            }
+
+            90% {
+                transform: translate(1px, 2px) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(1px, -2px) rotate(-1deg);
+            }
+        }
     </style>
 </head>
 
@@ -184,7 +251,7 @@ include './configDB/session.php';
             <div class="categoriesCont px-2 text-white d-flex justify-content-center align-items-center" id="categoriesCont">
                 <!--  fetched via index.js<fetchCategories -->
             </div>
-            <div class="text-danger px-2 closeChoosenCategory bg-white d-flex justify-content-center align-items-center" id="closeChoosenCategoryBtn">
+            <div class="text-danger px-2 closeChoosenCategory bg-white d-flex justify-content-center align-items-center " id="closeChoosenCategoryBtn">
                 CloseX
             </div>
         </div>

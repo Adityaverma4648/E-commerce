@@ -11,7 +11,7 @@ include "./configDB/conn.php";
                 <button class=" btn btn-outline-light rounded-1 my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>
-        <div class="col-sm-5 ms-5 d-flex justify-content-evenly align-items-center py-2 px-1 navbarEssentials text-white">
+        <div class="col-sm-4 ms-5 d-flex justify-content-evenly align-items-center py-2 px-1 navbarEssentials text-white">
             <div class="dropdown">
                 <button type="button" class="btn text-white dropdown-toggle" data-bs-toggle="dropdown">
                     <?php

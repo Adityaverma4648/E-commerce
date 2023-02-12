@@ -59,7 +59,7 @@ categoriesCont.addEventListener("click",(e)=>{
          
               var content = `<div class="choosenCatProductsCont py-2"><div class="path bg-success"><small>${category} > ${brand}</small></div><div class="body"><div class="imgCont"><div class="smallShow mx-1"><img src="`+ imageArray[0] +` alt="prod-img"><img src="`+ imageArray[1] +` alt="prod-img"><img src="`+ imageArray[2] +` alt="prod-img"><img src="`+ imageArray[3] +` alt="prod-img"></div><div class="largeShow"><img src="`+ imageArray[0] +` alt="prod-img"></div></div>
               <div><h5 class="px-2"><strong>${brand}</strong></h5>
-              <div class="bg-success text-center">Only at  <strong>${price}-Rs</strong>
+              <div class="bg-success text-center"><strong>${price}-Rs</strong>
               <span class="text-decoration-line-through">(${marketValue}-Rs)</span></div>
               <span class="py-2 button-group text-white" id="button-group"><button type="button" class="col-sm-6 py-1"><i class="fa fa-cart-plus"></i>Cart</button><button type="button" class="col-sm-6 py-1"><i class="fa fa-star"></i>Favourite</button></span></div></div></div>`
               return(
@@ -103,9 +103,14 @@ function productFetcher(page){
              </strong>
            </div>
            <div class="button-group">
-           <button type="button" class="btn btn-danger-outline"><i class="fa fa-heart"></i>Save</button>
-           <button type="button" class="btn btn-danger-success"><i class="fa fa-Cart"></i>AddToCart</button>
-
+           <button type="button" class="btn btn-danger-outline">
+             <i class="fa fa-heart"></i>
+             Save
+           </button>
+           <button type="button" class="btn btn-danger-success">   
+             <i class="fa fa-cart-plus"></i> 
+             AddToCart
+           </button>
            </div>
          </div></a>`;
          return (
